@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+  </head>
+<style>
+        html,body{text-align:center;margin:0px auto;}
+</style>
+<body>
+<font size="20" color="white">登录页面</font>
+<form method = 'post' enctype="multipart/form-data">
+{{userform.as_p}}
+<div id="loginform">
+<div id="facebook"><i class="fa fa-facebook"></i><div id="connect">Connect with Facebook<br>请输入正确的信息</div></div>
+<div id="mainlogin">
+<div id="or">and</div>
+<h1>Log in with awesome new thing</h1>
+<form action="#">
+<input type="text" placeholder="man or women" value="" required>
+<input type="text" placeholder="your birthday" value="" required>
+<button type="submit" ><i class="fa fa-arrow-right" ></i></button>
+</form>
+<div id="note"><a href="#" onclick="alert('请联系管理员')">Forgot your password?</a></div>
+</div>
+</div>
+</form>
+</body>
+</html>

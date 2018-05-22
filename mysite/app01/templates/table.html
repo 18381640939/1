@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <link href="{% static 'css/yinying.css' %}" rel="stylesheet">#}
+    <title>商品展示页面</title>
+    <style>
+        body{text-align: center}
+
+    </style>
+</head>
+<body>
+{#    <div align="center">#}
+{#    <a href="/">返回首页</a>#}
+{#        总记录数：{{ count }}#}
+{#        总页数：{{ num_pages }}#}
+{#        当前页：<font color="red"></font>#}
+{#    {% if has_previous %}#}
+{#            <a href="/table/?page=0">首页</a>#}
+{#            <a href="/table/?page={{ previous_page_number }}">上一页</a>#}
+{#        {% else %}#}
+{#            首页 上一页#}
+{#        {% endif %}#}
+{#    {% if  has_nexr %}#}
+{#            <a href="/table/?page={{ next_page_number }}">下一页</a>#}
+{#            <a href="/table/?page={{ last_page }}">尾页</a>#}
+{#           {% else %}#}
+{#            下一页 尾页#}
+{#        {% endif %}#}
+{#    </div>#}
+    <h1>商品展示</h1>
+<form method="get" action="/table/">
+  {% csrf_token %}
+  <input type="search" placeholder="搜索" required>
+  <button type="submit">搜索</button>
+</form>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>价格</th>
+            <th>信息</th>
+        </tr>
+        {% for goods in goods_list %}
+        <tr>
+            <td>{{ goods.id}}</td>
+            <td>{{ goods.price}}</td>
+            <td>{{ goods.name}}</td>
+        </tr>
+        {% endfor %}
+    {% if error_msg %}
+    <p>{{ error_msg }}</p>
+{% endif %}
+
+    </table>
+</body>
+</html>
